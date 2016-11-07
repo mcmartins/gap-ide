@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <title>GAP Interactive IDE</title>
+  <meta charset="utf-8"/>
+  <script src="../assets/lib/require.js"></script>
+  <script>
+    require('dist/antlr4/index');
+    require('dist/index');
+  </script>
+  <script src="https://rawgit.com/mcmartins/CodeMirror/master/lib/codemirror.js"></script>
+  <script src="https://rawgit.com/mcmartins/CodeMirror/master/addon/lint/lint.js"></script>
+  <script src="https://rawgit.com/mcmartins/CodeMirror/master/addon/mode/simple.js"></script>
+  <script src="https://rawgit.com/mcmartins/CodeMirror/master/mode/gap/gap.js"></script>
+  <script src="https://rawgit.com/mcmartins/CodeMirror/master/addon/lint/gap-lint.js"></script>
+  <link rel="stylesheet" href="https://rawgit.com/mcmartins/CodeMirror/master/doc/docs.css">
+  <link rel="stylesheet" href="https://rawgit.com/mcmartins/CodeMirror/master/lib/codemirror.css">
+  <link rel="stylesheet" href="https://rawgit.com/mcmartins/CodeMirror/master/theme/dracula.css">
+  <link rel="stylesheet" href="https://rawgit.com/mcmartins/CodeMirror/master/addon/lint/lint.css">
+  <link rel="stylesheet" href="../assets/css/concise.min.css">
+  <link rel="stylesheet" href="../assets/css/custom.css">
+</head>
+<body>
+
+<textarea id="code">
+#############################################################################
+##
+##  PackageInfo.g for the GAP package fidm
+##
+
+SetPackageInfo( rec(
+
+PackageName := "FIDM",
+Subtitle := "Framework for Interactive Discrete Mathematics - A cross-platform graphical user interface for GAP",
+Version := "0.1",
+Date := "07/11/2016"
+
+));
+    </textarea>
+
+
+<script>
+  CodeMirror.fromTextArea(document.getElementById('code'), {
+    mode: 'gap',
+    lineNumbers: true,
+    matchBrackets: true,
+    gutters: ["CodeMirror-lint-markers"],
+    lint: true,
+    theme: 'dracula'
+  });
+</script>
+</body>
+</html>

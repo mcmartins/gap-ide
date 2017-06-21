@@ -2,7 +2,7 @@ const {app, dialog, Menu, BrowserWindow} = require('electron');
 const menu = require('./src/core.menu/index.js');
 
 // initialize menu
-menu.initialize(Menu, dialog);
+//menu.initialize(Menu, dialog);
 
 let mainWindow;
 
@@ -12,5 +12,6 @@ app.on('ready', () => {
     width: 800
   });
 
+  mainWindow.setMenu(null);
   mainWindow.loadURL('file://' + __dirname + '/static/index.html');
 });

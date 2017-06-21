@@ -37,15 +37,15 @@
     "url": "https://github.com/mcmartins/gap-ide/issues"
   },
   "devDependencies": {
-    "devtron": "^1.3.0",
-    "electron-packager": "^8.0.0",
-    "electron-prebuilt": "^1.4.1",
-    "electron-installer-dmg": "^0.1.2",
-    "electron-builder": "^7.18.0",
-    "standard": "^8.3.0"
+    "devtron": "^1.4.0",
+    "electron-packager": "^8.7.1",
+    "electron-prebuilt": "^1.4.13",
+    "electron-installer-dmg": "^0.2.1",
+    "electron-builder": "^19.6.3",
+    "standard": "^10.0.2"
   },
   "dependencies": {
-    "electron": "^1.4.5",
-    "menubar": "^5.1.0"
+    "electron": "^1.6.11",
+    "menubar": "^5.2.3"
   }
 }

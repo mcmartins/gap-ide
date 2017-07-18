@@ -7,7 +7,6 @@
   var GAPLint = require("gap-lint").GAPLint;
 
   function validate(text, callback) {
-    console.log(GAPLint.validate(text).getErrors());
     return callback(false, GAPLint.validate(text).getErrors());
   }
 
@@ -24,9 +23,9 @@
       "Runs gap linter",
       ["text"],
       [{
-        name: "result",
-        type: "string",
-        description: "The result of the execution"
+        name: "errors",
+        type: "array",
+        description: "The result of the lint inspection"
       }]
     );
   }

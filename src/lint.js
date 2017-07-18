@@ -1,21 +1,19 @@
 /*global $, brackets, define, require, exports, module*/
 
 define(function (require, exports, module) {
-  'use strict';
+  "use strict";
 
-  var ExtensionUtils = brackets.getModule("utils/ExtensionUtils"),
-    NodeDomain = brackets.getModule("utils/NodeDomain");
+  var ExtensionUtils = brackets.getModule("utils/ExtensionUtils"), 
+    NodeDomain = brackets.getModule("utils/NodeDomain"), 
+    GAPLint = new NodeDomain("GAPLint", ExtensionUtils.getModulePath(module, "antlr4")), 
+    CodeInspection = brackets.getModule("language/CodeInspection");
 
-  var GAPLint = new NodeDomain("GAPLint", ExtensionUtils.getModulePath(module, "antlr4"));
+  function scanFileAsync(fullText, fullPath) {
+    var deferred = new $.Deferred();
 
-  var CodeInspection = brackets.getModule("language/CodeInspection");
-
-  function scanFileAsync(text, fullPath) {
-    var def = new $.Deferred();
-
-    GAPLint.exec("validate", text)
+    GAPLint.exec("validate", fullText)
       .fail(function (err) {
-        return def.reject(err);
+        return deferred.reject(err);
       })
       .done(function (errors) {
         var results = [];
@@ -33,14 +31,12 @@ define(function (require, exports, module) {
           });
         }
 
-        return def.resolve({errors: results});
+        return deferred.resolve({errors: results});
       });
 
-    return def.promise();
+    return deferred.promise();
   }
 
-
-  // register a linter with CodeInspection
   CodeInspection.register("gap", {
     name: "GAP Lint",
     scanFileAsync: scanFileAsync

@@ -1,7 +1,7 @@
 {
   "name": "gap-ide",
   "version": "0.1.0",
-  "description": "GAP IDE Utilities for Brackets.io Code Editor",
+  "description": "GAP IDE Utilities Extension for Brackets.io Code Editor",
   "main": "main.js",
   "keywords": [
     "gap",
@@ -10,7 +10,12 @@
     "discrete",
     "mathematics"
   ],
-  "scripts": {},
+  "engines": {
+    "brackets": ">=0.24.0"
+  },
+  "scripts": {
+    "package": "zip -r gap-ide-tools-$npm_package_version.zip * -x ./.c9 ./.git ./.gitignore ./*-lock.json ./*.zip"
+  },
   "author": "Manuel Martins <manuelmachadomartins@gmail.com>",
   "license": "MIT",
   "repository": {

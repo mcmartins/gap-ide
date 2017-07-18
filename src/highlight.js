@@ -1,16 +1,13 @@
-/*global $, brackets, define, require, exports, module*/
+/*global brackets, define, require, exports, module*/
 
 define(function (require, exports, module) {
   "use strict";
 
   var LanguageManager = brackets.getModule("language/LanguageManager"),
     CodeMirror = brackets.getModule("thirdparty/CodeMirror2/lib/codemirror"),
-    builtinString = require("text!src/builtin.json"),
-    gapBuiltinFunctions = JSON.parse(builtinString).functions,
-    builtin = createBuiltinRegularExpression(gapBuiltinFunctions),
-    keywords = createKeywordRegularExpression(["Assert", "Info", "IsBound", "QUIT", "TryNextMethod", "Unbind", "and",
-    "atomic", "break", "continue", "do", "elif", "else", "end", "false", "fi", "for", "function", "if", "in", "local",
-    "mod", "not", "od", "or", "quit", "readonly", "readwrite", "rec", "repeat", "return", "then", "true", "until", "while"]),
+    gapBuiltin = JSON.parse(require("text!src/builtin.json")),
+    builtin = createFunctionsRegularExpression(gapBuiltin.functions),
+    keywords = createKeywordsRegularExpression(gapBuiltin.keywords),
     all = /(?:.)/,
     comment = /(?:#.*$)/,
     blockLiterals = /(?:""")/,
@@ -22,11 +19,11 @@ define(function (require, exports, module) {
     dedentTokens = /(?:\bend;?\b|\bod;?\b|\bfi;?\b)/,
     partiallyDedentTokens = /(?:\belse?\b|\belif\b)/;
 
-  function createBuiltinRegularExpression(words) {
+  function createFunctionsRegularExpression(words) {
     return new RegExp(words.join("(?!\\\\[(),.]?|[\\w@]+)|") + "(?!\\\\[(),.]?|[\\w@]+)", "m");
   }
 
-  function createKeywordRegularExpression(words) {
+  function createKeywordsRegularExpression(words) {
     return new RegExp("\\b" + words.join("\\b|\\b") + "\\b", "m");
   }
 

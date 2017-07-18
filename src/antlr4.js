@@ -1,7 +1,6 @@
 /*global $, brackets, define, require, exports, module*/
 
 (function () {
-
   "use strict";
 
   var GAPLint = require("gap-lint").GAPLint;

@@ -1,5 +1,7 @@
 # GAP-IDE - Brackets.io Extension
 
+[![Downloads](https://badges.ml/gap-ide/total.svg)](https://brackets-extension-badges.github.io#gap-ide) [![Downloads](https://badges.ml/gap-ide/last-version.svg)](https://brackets-extension-badges.github.io#gap-ide)
+
 Contains the GAP IDE implementation and installer for Brackets.io
 
 This project is the base for the GAP package FIDM, based on XGAP, to provide

@@ -1,7 +1,7 @@
 {
   "name": "gap-ide",
-  "version": "0.1.0",
-  "description": "GAP IDE Utilities Extension for Brackets.io Code Editor",
+  "version": "0.1.1",
+  "description": "GAP IDE Utilities Extension for Brackets.io Code Editor. Feedback and bug reporting: https://github.com/mcmartins/gap-ide/",
   "main": "main.js",
   "keywords": [
     "gap",

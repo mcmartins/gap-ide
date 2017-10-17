@@ -27,6 +27,6 @@
     "url": "https://github.com/mcmartins/gap-ide/issues"
   },
   "dependencies": {
-    "gap-lint": "^1.0.4"
+    "gap-lint": "^1.0.5"
   }
 }
